@@ -14,7 +14,7 @@ app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(express.static('public'))
-app.use(express.urlencoded())
+app.use(express.urlencoded({limit: '50mb', extended: true}))
 
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL, {
